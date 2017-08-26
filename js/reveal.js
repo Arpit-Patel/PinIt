@@ -114,7 +114,7 @@
 			// Number of milliseconds between automatically proceeding to the
 			// next slide, disabled when set to 0, this value can be overwritten
 			// by using a data-autoslide attribute on your slides
-			autoSlide: 0,
+			autoSlide: 1000,
 
 			// Stop auto-sliding after user input
 			autoSlideStoppable: true,
@@ -241,12 +241,12 @@
 		eventsAreBound = false,
 
 		// The current auto-slide duration
-		autoSlide = 1,
+		autoSlide = 1000,
 
 		// Auto slide properties
 		autoSlidePlayer,
 		autoSlideTimeout = 0,
-		autoSlideStartTime = 1,
+		autoSlideStartTime = -1,
 		autoSlidePaused = false,
 
 		// Holds information about the currently ongoing touch input
