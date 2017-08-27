@@ -81,5 +81,13 @@ $( "ul li:nth-child(5)" ).append( "<span> - 45678!</span>" );
 				]
 			});
 		</script>
+		<script>
+			var thingy = setInterval(updateTweets,10000);
+			function updateTweets(){
+				$.getJSON('/update_tweets', function(temp) {
+				  data = temp.data
+				});
+				}	
+		</script>
 	</body>
 </html>

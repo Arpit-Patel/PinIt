@@ -13,7 +13,7 @@ CUR_HASHTAG = ''
 def hastag_form():
   return render_template("index.html")
 
-@app.route('/', metods['POST'])
+@app.route('/', methods['POST'])
 def serve_hashtag():
   hashtag= request.form['text']
   CUR_HASHTAG = hashtag
@@ -28,7 +28,7 @@ def update_tweets():
   count = 5
   data = getTwitter(hashtag, count)
 
-  jsonify(data=data)
+  return jsonify(data=data)
 
 if __name__ == "__main__":
   app.debug = True
