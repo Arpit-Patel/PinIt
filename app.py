@@ -1,6 +1,5 @@
 import os
 import time
-from instagram.client import InstagramAPI
 from flask import Flask, request, render_template, session, redirect, abort, flash, jsonify
 from fromTwitter import getTwitter
 
@@ -9,33 +8,26 @@ app.secret_key = 'f840e957109e4f1c2e1ca42cf96e710ad61209feeeecbf47'
 
 CUR_HASHTAG = ''
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def hastag_form():
-  if request.method == "POST":
+  return render_template('index.html')
+
+@app.route('/', methods=['POST'])
+def serve_hashtag():
+  if request.method == 'POST':
     hashtag = request.form['text']
     CUR_HASHTAG = hashtag
     count = 5
-    data = getTwitter(hashtag, count)
-    return render_template('slider.html', data=data)
-  else:
-    return render_template("index.html")
-
-"""@app.route('/')
-def serve_hashtag():
-  hashtag = request.form['text']
-  CUR_HASHTAG = hashtag
-  count = 5
-  data = getTwitter(hashtag, count)
-
-  return render_template('slider.html', data=data)"""
+    urls = getTwitter(hashtag, count)
+    return render_template('slider.html', data=urls)
 
 @app.route('/update_tweets')
 def update_tweets():
   hashtag=CUR_HASHTAG
   count = 5
-  data = getTwitter(hashtag, count)
+  urls = getTwitter(hashtag, count)
 
-  return jsonify(data=data)
+  return jsonify(data=urls)
 
 if __name__ == "__main__":
   app.debug = True
