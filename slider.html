@@ -11,6 +11,8 @@
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script type=text/javascript>
@@ -36,15 +38,30 @@
 		</script>
 	</head>
 	<body>
+
 		<div class="reveal">
 			<div class="slides">
-				<section></section>
-				<section>Slide 2</section>
-				<section data-autoslide="2000">
-	<p>After 2 seconds the first fragment will be shown.</p>
-	<p class="fragment" data-autoslide="10000">After 10 seconds the next fragment will be shown.</p>
-	<p class="fragment">Now, the fragment is displayed for 2 seconds before the next slide is shown.</p>
+
+<section>
+	<script>
+	</script>
+<script>
+$( "ul li:nth-child(2)" ).append( "<span> - !</span>" );
+</script>
 </section>
+<section><script>
+$( "ul li:nth-child(3)" ).append( "<span> - fgtyhuji!</span>" );
+</script>
+</section>
+<section><script>
+$( "ul li:nth-child(4)" ).append( "<span> - 3456!</span>" );
+</script>
+</section>
+<section><script>
+$( "ul li:nth-child(5)" ).append( "<span> - 45678!</span>" );
+</script>
+</section>
+
 			</div>
 		</div>
 
