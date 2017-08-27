@@ -13,9 +13,20 @@
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
-		<!-- Printing and PDF exports -->
-		<script>
+<script type=text/javascript>
+    $(function() {
+      $('a#calculate').bind('click', function() {
+        $.getJSON('/_add_numbers', {
+          a: $('input[name="a"]').val(),
+          b: $('input[name="b"]').val()
+        }, function(data) {
+          $("#result").text(data.result);
+        });
+        return false;
+      });
+    });
+  </script>
+	<script>
 
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
